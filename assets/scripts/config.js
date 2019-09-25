@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
+  production: 'https://sangelici.github.io/tictactoe-client/',
   development: 'http://localhost:4741'
 }
 

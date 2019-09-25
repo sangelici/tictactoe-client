@@ -13,16 +13,27 @@
     </head>
     <body>
 
-      <h1 class="title">Tic-Tac-Toe</h1>
+<!-- API -->
+        <h1 class="title">Tic-Tac-Toe</h1>
 
-      <section class="left containter">
-        <div class="menu">
-          <div class="menu-item">Start</div>
-          <div class="menu-item">Scores</div>
-          <div class="menu-item">Sign-Out</div>
+        <div class="sign-up">
+          <h3>Sign-Up:</h3>
+          <form id="sign-up">
+            <input type="email" name="credentials[email]" placeholder="Enter email...">
+            <br>
+            <input type="password" name="credentials[password]" placeholder="Enter password...">
+            <br>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
+            <br>
+            <button>Sign Up</button>
+          </form>
         </div>
-      </section>
 
+
+
+
+
+<!-- GAMEBOARD -->
       <section class="container">
         <div class="row" id="gameboard">
           <div class="col-4 box" id="1">1</div>
