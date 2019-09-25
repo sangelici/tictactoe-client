@@ -1,8 +1,8 @@
 'use-strict'
 
+const getFormFields = require ('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
-
 
 
 const onPlayerMove = function(box) {
@@ -10,9 +10,9 @@ const onPlayerMove = function(box) {
 }
 
 const onSignUp = function(event) {
-  event.preventDEfault()
+  event.preventDefault()
   const form = event.target
-  const formData = getFieldForms(form)
+  const formData = getFormFields(form)
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)

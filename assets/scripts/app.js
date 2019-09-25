@@ -6,5 +6,5 @@ const events = require ('./games/events')
 
 $(() => {
   $('#gameboard').on('click', events.onPlayerMove)
-  $('sign-up').on('submit', events.onSignUp)
+  $('#sign-up').on('submit', events.onSignUp)
 })

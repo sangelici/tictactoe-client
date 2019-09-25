@@ -15,8 +15,20 @@ h1 {
   justify-content: center;
 }
 
+.failure {
+  margin: 25px;
+  color: #FF0700;
+  font-style: italic;
+}
+
 .sign-up {
   border: 2px solid black;
   float: left;
   margin: 0 auto;
+}
+
+.success {
+  margin: 25px;
+  color: #36EB73;
+  font-style: italic;
 }
