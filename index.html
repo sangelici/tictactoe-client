@@ -14,40 +14,80 @@
     <body>
 
 <!-- API -->
-        <h1 class="title">Tic-Tac-Toe</h1>
+    <div class="row">
+      <div class="col">
+        <div class="leftside">
+          <h1>Tic-Tac-Toe</h1>
+          <h4 id="message"></h4>
+          <div class="sign-up">
+            <h3>Sign-Up:</h3>
+            <form id="sign-up">
+              <input type="email" name="credentials[email]" placeholder="Enter email...">
+              <br>
+              <input type="password" name="credentials[password]" placeholder="Enter password...">
+              <br>
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
+              <br>
+              <button>Sign Up</button>
+            </form>
+          </div>
 
-        <h4 id="message"></h4>
+          <div class="sign-in">
+            <h3>Sign-In:</h3>
+            <form id="sign-in">
+              <input type="email" name="credentials[email]" placeholder="Enter email...">
+              <br>
+              <input type="password" name="credentials[password]" placeholder="Enter password...">
+              <br>
+              <button>Sign In</button>
+            </form>
+          </div>
 
-        <div class="sign-up">
-          <h3>Sign-Up:</h3>
-          <form id="sign-up">
-            <input type="email" name="credentials[email]" placeholder="Enter email...">
+          <div class="change-password">
+            <h3>Change Password:</h3>
+            <form id="change-password">
+            <input type="password" name="passwords[old]" placeholder="Enter old password...">
             <br>
-            <input type="password" name="credentials[password]" placeholder="Enter password...">
+            <input type="password" name="passwords[new]" placeholder="Enter new password...">
             <br>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
-            <br>
-            <button>Sign Up</button>
+            <button>Submit</button>
           </form>
+          </div>
+
+          <div class="sign-out">
+            <h3>Sign-Out:</h3>
+            <form id="sign-out">
+              <button>Sign Out</button>
+            </form>
+          </div>
         </div>
-
-
-
-
-
-<!-- GAMEBOARD -->
-      <section class="container">
-        <div class="row" id="gameboard">
-          <div class="col-4 box" id="1">1</div>
-          <div class="col-4 box" id="2">2</div>
-          <div class="col-4 box" id="3">3</div>
-          <div class="col-4 box" id="4">4</div>
-          <div class="col-4 box" id="5">5</div>
-          <div class="col-4 box" id="6">6</div>
-          <div class="col-4 box" id="7">7</div>
-          <div class="col-4 box" id="8">8</div>
-          <div class="col-4 box" id="9">9</div>
-        </section>
       </div>
+
+
+  <!-- GAMEBOARD -->
+      <div class="col">
+        <div class="rightside">
+        <div class="container">
+          <table id="gameboard">
+            <tr class="row">
+              <td class="box" id="1">1</td>
+              <td class="box" id="2">2</td>
+              <td class="box" id="3">3</td>
+            </tr>
+            <tr class="row">
+              <td class="box" id="4">4</td>
+              <td class="box" id="5">5</td>
+              <td class="box" id="6">6</td>
+            </tr>
+            <tr class="row">
+              <td class="box" id="7">7</td>
+              <td class="box" id="8">8</td>
+              <td class="box" id="9">9</td>
+            </tr>
+          </table>
+        </div>
+        </div>
+      </div>
+    </div>
     </body>
 </html>
