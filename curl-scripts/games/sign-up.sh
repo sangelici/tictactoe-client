@@ -1,4 +1,4 @@
-curl "https://sangelici.github.io/tictactoe-client/sign-up" \
+curl "https://wdi-library-api.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
