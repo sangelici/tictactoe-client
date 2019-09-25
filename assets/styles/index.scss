@@ -1,0 +1,11 @@
+@import './variables';
+@import '~bootstrap/scss/bootstrap';
+
+.box {
+  align-items: center;
+  background-color: $primary-box-color;
+  border: 1px solid white;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
