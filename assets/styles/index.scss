@@ -1,6 +1,11 @@
 @import './variables';
 @import '~bootstrap/scss/bootstrap';
 
+h1 {
+  display: flex;
+  justify-content: flex-start
+}
+
 .box {
   align-items: center;
   background-color: $primary-box-color;
@@ -8,4 +13,10 @@
   display: flex;
   height: 80px;
   justify-content: center;
+}
+
+.sign-up {
+  border: 2px solid black;
+  float: left;
+  margin: 0 auto;
 }

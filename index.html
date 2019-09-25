@@ -12,22 +12,40 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic-Tac-Toe</h1>
 
-      <div class="left containter"></div>
+<!-- API -->
+        <h1 class="title">Tic-Tac-Toe</h1>
 
-      <div class="right">
-        <div id="gameboard">
-          <div class="box ">1</div>
-          <div class="box">2</div>
-          <div class="box">3</div>
-          <div class="box">4</div>
-          <div class="box">5</div>
-          <div class="box">6</div>
-          <div class="box">7</div>
-          <div class="box">8</div>
-          <div class="box">9</div>
+        <div class="sign-up">
+          <h3>Sign-Up:</h3>
+          <form id="sign-up">
+            <input type="email" name="credentials[email]" placeholder="Enter email...">
+            <br>
+            <input type="password" name="credentials[password]" placeholder="Enter password...">
+            <br>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
+            <br>
+            <button>Sign Up</button>
+          </form>
         </div>
+
+
+
+
+
+<!-- GAMEBOARD -->
+      <section class="container">
+        <div class="row" id="gameboard">
+          <div class="col-4 box" id="1">1</div>
+          <div class="col-4 box" id="2">2</div>
+          <div class="col-4 box" id="3">3</div>
+          <div class="col-4 box" id="4">4</div>
+          <div class="col-4 box" id="5">5</div>
+          <div class="col-4 box" id="6">6</div>
+          <div class="col-4 box" id="7">7</div>
+          <div class="col-4 box" id="8">8</div>
+          <div class="col-4 box" id="9">9</div>
+        </section>
       </div>
     </body>
 </html>
