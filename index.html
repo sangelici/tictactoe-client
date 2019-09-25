@@ -12,22 +12,29 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic-Tac-Toe</h1>
 
-      <div class="left containter"></div>
+      <h1 class="title">Tic-Tac-Toe</h1>
 
-      <div class="right">
-        <div id="gameboard">
-          <div class="box ">1</div>
-          <div class="box">2</div>
-          <div class="box">3</div>
-          <div class="box">4</div>
-          <div class="box">5</div>
-          <div class="box">6</div>
-          <div class="box">7</div>
-          <div class="box">8</div>
-          <div class="box">9</div>
+      <section class="left containter">
+        <div class="menu">
+          <div class="menu-item">Start</div>
+          <div class="menu-item">Scores</div>
+          <div class="menu-item">Sign-Out</div>
         </div>
+      </section>
+
+      <section class="container">
+        <div class="row" id="gameboard">
+          <div class="col-4 box" id="1">1</div>
+          <div class="col-4 box" id="2">2</div>
+          <div class="col-4 box" id="3">3</div>
+          <div class="col-4 box" id="4">4</div>
+          <div class="col-4 box" id="5">5</div>
+          <div class="col-4 box" id="6">6</div>
+          <div class="col-4 box" id="7">7</div>
+          <div class="col-4 box" id="8">8</div>
+          <div class="col-4 box" id="9">9</div>
+        </section>
       </div>
     </body>
 </html>

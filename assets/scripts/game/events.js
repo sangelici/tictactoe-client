@@ -3,6 +3,13 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 
-const onPlayerMove = function() {
-  console.log(`I've been clicked`)
+
+
+const onPlayerMove = function(box) {
+  console.log('clicked!')
+
+}
+
+module.exports = {
+  onPlayerMove
 }
