@@ -9,11 +9,10 @@ h1 {
 
 .box {
   align-items: center;
-  background-color: $primary-box-color;
-  border: 1px solid white;
+  border: 1px solid black;
   display: flex;
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   justify-content: center;
 }
 
@@ -30,13 +29,12 @@ h1 {
 }
 
 .leftside {
-  background-color: #D2E7FF;
-  width: 100%;
+
+
 }
 
 .rightside {
-  background-color: #FFF6E9;
-  width: 100%;
+
 }
 
 .sign-up {
