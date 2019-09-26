@@ -13,7 +13,7 @@
     </head>
     <body>
 
-<!-- API -->
+<!-- AUTH API -->
     <div class="row">
       <div class="col">
         <div class="leftside">
@@ -63,26 +63,30 @@
         </div>
       </div>
 
+<!-- GAME API -->
+      <button id="create-game">START</button>
 
-  <!-- GAMEBOARD -->
+<!-- GAMEBOARD -->
       <div class="col">
         <div class="rightside">
         <div class="container">
+          <h4 id="game-message"></h4>
+          <h5 id="tile-taken"></h5>
           <table id="gameboard">
             <tr class="row">
-              <td class="col-4 box" id="cell-1"></td>
-              <td class="col-4 box" id="cell-2"></td>
-              <td class="col-4 box" id="cell-3"></td>
+              <td data-cell-index='0' class="col-4 box"></td>
+              <td data-cell-index='1' class="col-4 box"></td>
+              <td data-cell-index='2' class="col-4 box"></td>
             </tr>
             <tr class="row">
-              <td class="col-4 box" id="cell-4"></td>
-              <td class="col-4 box" id="cell-5"></td>
-              <td class="col-4 box" id="cell-6"></td>
+              <td data-cell-index='3' class="col-4 box"></td>
+              <td data-cell-index='4' class="col-4 box"></td>
+              <td data-cell-index='5' class="col-4 box"></td>
             </tr>
             <tr class="row">
-              <td class="col-4 box" id="cell-7"></td>
-              <td class="col-4 box" id="cell-8"></td>
-              <td class="col-4 box" id="cell-9"></td>
+              <td data-cell-index='6' class="col-4 box"></td>
+              <td data-cell-index='7' class="col-4 box"></td>
+              <td data-cell-index='8' class="col-4 box"></td>
             </tr>
           </table>
         </div>

@@ -6,15 +6,13 @@ const store = require ('../store.js')
 
 const successMessage = function(newText) {
   $('#message').text(newText)
-// Connected to index.scss file
-// removes failure so it doesn't appear red
   $('#message').removeClass('failure')
   $('#message').addClass('success')
+  $('form').trigger('reset')
 }
 
 const failureMessage = function(newText) {
   $('#message').text(newText)
-// removes success so it doesn't appear green
   $('#message').removeClass('success')
   $('#message').addClass('failure')
 }
