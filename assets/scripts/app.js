@@ -4,6 +4,7 @@
 const authEvents = require ('./auth/events')
 const gameEvents = require ('./games/events')
 
+const gameboard = ["","","", "","","","","",""]
 
 $(() => {
   $('.box').on('click', gameEvents.onBoxClicked)
