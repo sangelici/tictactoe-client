@@ -25,13 +25,13 @@ const onUpdateGame = function(event) {
 //i need to make the letter variable accessible so that I can put it into my api
 
 const gameboard = ["","","", "","","","","",""]
-
 let playerTurn = true
+let gameover = false
 
 const onBoxClicked = function(event) {
   event.preventDefault()
   let letter = playerTurn ? 'X' : 'O'
-  api.updateGame(event.target.id, letter,/*parameter that identifies the symbol*/)
+  api.updateGame(event.target.id, letter, gameover)
     .then(ui.onUpdateGameSuccess)
   //if player1 goes, the next input should be 'o'
   if ($(event.target).html() === ""){
@@ -47,31 +47,59 @@ const onBoxClicked = function(event) {
     playerTurn = true
     $('#game-message').text(`X's Turn!`).css('color', 'blue')
   }
+  checkForDraw()
   checkForWin()
+}
+
+const checkForDraw = function() {
+  if ($('#0').html() !== '' && $('#1').html() !== '' && $('#2').html() !== '' && $('#3').html() !== '' && $('#4').html() !== '' && $('#5').html() !== '' && $('#6').html() !== '' && $('#7').html() !== '' && $('#8').html() !== '') {
+    //console.log('It is a tie!')
+    $('#game-message').html(`It's a tie!`)
+    gameover = true
+    $('.box').off('click', onBoxClicked)
+  }
 }
 
 const checkForWin = function() {
   // HORIZONTAL
   if(($('#0').html() === 'X' && $('#1').html() === 'X' && $('#2').html() === 'X') || ($('#0').html() === 'O' && $('#1').html() === 'O' && $('#2').html() === 'O')) {
-    console.log('Winner!')
+    //console.log('Winner!')
+    $('#game-message').html(`Winner!`)
+    gameover = true
+    $('.box').off('click', onBoxClicked)
   } else if(($('#3').html() === 'X' && $('#4').html() === 'X' && $('#5').html() === 'X') || ($('#3').html() === 'O' && $('#4').html() === 'O' && $('#5').html() === 'O')) {
   } else if(($('#6').html() === 'X' && $('#7').html() === 'X' && $('#8').html() === 'X') || ($('#6').html() === 'O' && $('#7').html() === 'O' && $('#8').html() === 'O')) {
-    console.log('Winner!')
+    //console.log('Winner!')
+    $('#game-message').html(`Winner!`)
+    gameover = true
+    $('.box').off('click', onBoxClicked)
   //VERTICAL
   } else if(($('#0').html() === 'X' && $('#3').html() === 'X' && $('#6').html() === 'X') || ($('#0').html() === 'O' && $('#3').html() === 'O' && $('#6').html() === 'O')) {
-    console.log('Winner!')
+    //console.log('Winner!')
+    $('#game-message').html(`Winner!`)
+    gameover = true
+    $('.box').off('click', onBoxClicked)
   } else if(($('#1').html() === 'X' && $('#4').html() === 'X' && $('#7').html() === 'X') || ($('#1').html() === 'O' && $('#4').html() === 'O' && $('#7').html() === 'O')) {
-    console.log('Winner!')
+    //console.log('Winner!')
+    $('#game-message').html(`Winner!`)
+    gameover = true
+    $('.box').off('click', onBoxClicked)
   } else if(($('#2').html() === 'X' && $('#5').html() === 'X' && $('#8').html() === 'X') || ($('#3').html() === 'O' && $('#5').html() === 'O' && $('#8').html() === 'O')) {
-    console.log('Winner!')
+    //console.log('Winner!')
+    $('#game-message').html(`Winner!`)
+    gameover = true
+    $('.box').off('click', onBoxClicked)
   // // DIAGONAL
   } else if(($('#0').html() === 'X' && $('#4').html() === 'X' && $('#8').html() === 'X') || ($('#0').html() === 'O' && $('#4').html() === 'O' && $('#8').html() === 'O')) {
-    console.log('Winner!')
+    //console.log('Winner!')
+    $('#game-message').html(`Winner!`)
+    gameover = true
+    $('.box').off('click', onBoxClicked)
   } else if(($('#2').html() === 'X' && $('#4').html() === 'X' && $('#6').html() === 'X') || ($('#2').html() === 'O' && $('#4').html() === 'O' && $('#6').html() === 'O')) {
-    console.log('Winner!')
-  // } else if (/*if none of the cells match*/) {
-  //   console.log('It is a tie!')
-  // }
+    //console.log('Winner!')
+    $('#game-message').html(`Winner!`)
+    gameover = true
+    $('.box').off('click', onBoxClicked)
   }
 }
 
