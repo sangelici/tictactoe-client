@@ -19,6 +19,10 @@ const failureMessage = function(newText) {
 
 const onSignUpSuccess = function() {
   successMessage(`You've signed up successfully!`)
+  $('.sign-up').hide()
+  $('.sign-in').hide()
+  $('.change-password').show()
+  $('.sign-out').show()
 }
 
 const onSignUpFailure = function() {
@@ -28,6 +32,10 @@ const onSignUpFailure = function() {
 const onSignInSuccess = function(responseData) {
   successMessage(`You've signed in!`)
   store.user = responseData.user
+  $('.sign-up').hide()
+  $('.sign-in').hide()
+  $('.change-password').show()
+  $('.sign-out').show()
 }
 
 const onSignInFailure = function() {
@@ -44,6 +52,10 @@ const onChangePasswordFailure = function() {
 
 const onSignOutSuccess = function() {
   successMessage(`You have signed out!`)
+  $('.sign-up').show()
+  $('.sign-in').show()
+  $('.change-password').hide()
+  $('.sign-out').hide()
 }
 
 const onSignOutFailure = function() {
