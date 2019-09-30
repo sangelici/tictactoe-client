@@ -23,6 +23,9 @@ const onSignUpSuccess = function() {
   $('.sign-in').hide()
   $('.change-password').show()
   $('.sign-out').show()
+  $('#create-game').show()
+  $('#show-games').show()
+  // $('#curtain').hide()
 }
 
 const onSignUpFailure = function() {
@@ -36,6 +39,9 @@ const onSignInSuccess = function(responseData) {
   $('.sign-in').hide()
   $('.change-password').show()
   $('.sign-out').show()
+  $('#create-game').show()
+  $('#show-games').show()
+  // $('#curtain').hide()
 }
 
 const onSignInFailure = function() {
@@ -55,7 +61,8 @@ const onSignOutSuccess = function() {
   $('.sign-up').show()
   $('.sign-in').show()
   $('.change-password').hide()
-  $('.sign-out').hide()
+  $('.menu2').hide()
+  $('#game-stats').hide()
 }
 
 const onSignOutFailure = function() {

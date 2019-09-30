@@ -14,6 +14,8 @@ const createGame = function() {
   })
 }
 
+
+
 const updateGame = function(index, value, gameover) {
   return $.ajax({
     method: 'PATCH',
@@ -33,7 +35,18 @@ const updateGame = function(index, value, gameover) {
   })
 }
 
+const showGames = function() {
+  return $.ajax ({
+    method: 'GET',
+    url: config.apiUrl + '/games?over=false',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createGame,
-  updateGame
+  updateGame,
+  showGames
 }

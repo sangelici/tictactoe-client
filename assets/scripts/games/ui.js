@@ -30,8 +30,18 @@ const onUpdateGameSuccess = function(responseData) {
   console.log(store.game)
 }
 
+const onShowGamesSuccess = function(responseData) {
+  $('#game-stats').text(responseData.games.length)
+}
+
+const onShowGamesFailure = function() {
+  store.games = $('#game-stats').text('No Game History')
+}
+
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
-  onUpdateGameSuccess
+  onUpdateGameSuccess,
+  onShowGamesSuccess,
+  onShowGamesFailure
 }
