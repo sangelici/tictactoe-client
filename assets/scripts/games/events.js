@@ -6,13 +6,8 @@ const ui = require('./ui.js')
 const store = require ('../store.js')
 
 const onCreateGame = function(event) {
-  $('.box').on('click', onBoxClicked)
-  event.preventDefault()
-  api.createGame()
-    .then(ui.onCreateGameSuccess)
-}
-
-const onNewGame = function(event) {
+  playerTurn = true
+  winner = false
   $('.box').text('')
   $('.box').css('border-color', '#728CFF')
   $('.box').on('click', onBoxClicked)
@@ -21,10 +16,16 @@ const onNewGame = function(event) {
     .then(ui.onCreateGameSuccess)
 }
 
+// const onNewGame = function(event) {
+//
+//   event.preventDefault()
+//   api.createGame()
+//     .then(ui.onCreateGameSuccess)
+// }
+
 const onUpdateGame = function(event) {
   event.preventDefault()
   store.id = $(event.target).attr('data-cell-index')
-  //console.log('The cell is:', store.id)
 }
 
 const onShowGames = function() {
@@ -45,11 +46,12 @@ let gameover = false
 const onBoxClicked = function(event) {
   event.preventDefault()
   let letter = playerTurn ? 'X' : 'O'
+  console.log(letter)
   if ($(event.target).html() === ""){
     $(event.target).html(letter).css('color', '#FF8E51').css('font-family', 'Cute Font')
-  } else if($(event.target).html() === "X"||$(event.target).html() === "O") {
+  } else {
+    $('#tile-taken').text('Tile has been taken')
   }
-  $('#tile-taken').text('Tile has been taken')
 
   if(playerTurn) {
     playerTurn = false
@@ -67,7 +69,7 @@ const onBoxClicked = function(event) {
   } else {
     gameover = false
   }
-  console.log(gameover) // *******WORKS
+  //console.log(gameover) // *******WORKS
 
   api.updateGame(event.target.id, letter, gameover)
     .then(ui.onUpdateGameSuccess)
@@ -91,7 +93,6 @@ const checkForDraw = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
   }
 }
 
@@ -108,7 +109,7 @@ const checkForWin = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
+    $('#new-game').on('click', onCreateGame)
   } else if($('#3').html() !== '' && $('#3').html() === $('#4').html() && $('#3').html() ===  $('#5').html()){
     winner = true
     $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
@@ -118,7 +119,7 @@ const checkForWin = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
+    $('#new-game').on('click', onCreateGame)
   } else if($('#6').html() !== '' && $('#6').html() === $('#7').html() && $('#6').html() ===  $('#8').html()) {
     //console.log('Winner!')
     winner = true
@@ -129,7 +130,7 @@ const checkForWin = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
+    $('#new-game').on('click', onCreateGame)
   //VERTICAL
 } else if($('#0').html() !== '' && $('#0').html() === $('#3').html() && $('#0').html() ===  $('#6').html()) {
     //console.log('Winner!')
@@ -141,7 +142,7 @@ const checkForWin = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
+    $('#new-game').on('click', onCreateGame)
   } else if($('#1').html() !== '' && $('#1').html() === $('#4').html() && $('#1').html() ===  $('#7').html()) {
     //console.log('Winner!')
     winner = true
@@ -152,7 +153,7 @@ const checkForWin = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
+    $('#new-game').on('click', onCreateGame)
   } else if($('#2').html() !== '' && $('#2').html() === $('#5').html() && $('#2').html() ===  $('#8').html()) {
     //console.log('Winner!')
     winner = true
@@ -163,7 +164,7 @@ const checkForWin = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
+    $('#new-game').on('click', onCreateGame)
   // // DIAGONAL
 } else if($('#0').html() !== '' && $('#0').html() === $('#4').html() && $('#0').html() ===  $('#8').html()) {
     //console.log('Winner!')
@@ -175,7 +176,7 @@ const checkForWin = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
+    $('#new-game').on('click', onCreateGame)
   } else if($('#2').html() !== '' && $('#2').html() === $('#4').html() && $('#2').html() ===  $('#6').html()) {
     //console.log('Winner!')
     winner = true
@@ -186,16 +187,13 @@ const checkForWin = function() {
     $('.box').off('click', onBoxClicked)
     $('#create-game').hide()
     $('#new-game').show()
-    $('#new-game').on('click', onNewGame)
+    $('#new-game').on('click', onCreateGame)
   }
 }
-
-
 
 module.exports = {
   onBoxClicked,
   onCreateGame,
   onUpdateGame,
   onShowGames,
-  onNewGame
 }

@@ -14,8 +14,6 @@ const createGame = function() {
   })
 }
 
-
-
 const updateGame = function(index, value, gameover) {
   return $.ajax({
     method: 'PATCH',
