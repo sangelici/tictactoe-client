@@ -4,8 +4,6 @@
 const authEvents = require ('./auth/events')
 const gameEvents = require ('./games/events')
 
-const gameboard = ["","","", "","","","","",""]
-
 $(() => {
   $('.box').on('click', gameEvents.onBoxClicked)
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -16,4 +14,5 @@ $(() => {
   $('#gameboard').on('click', gameEvents.onUpdateGame)
   $('.change-password').hide()
   $('.sign-out').hide()
+  $('#new-game').hide()
 })

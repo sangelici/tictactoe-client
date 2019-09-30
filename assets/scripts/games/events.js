@@ -35,7 +35,7 @@ const onBoxClicked = function(event) {
     .then(ui.onUpdateGameSuccess)
   //if player1 goes, the next input should be 'o'
   if ($(event.target).html() === ""){
-    $(event.target).html(letter)
+    $(event.target).html(letter).css('color', 'blue')
   } else if($(event.target).html() === "X"||$(event.target).html() === "O") {
     $('#tile-taken').text('Tile has been taken')
   }
@@ -47,61 +47,65 @@ const onBoxClicked = function(event) {
     playerTurn = true
     $('#game-message').text(`X's Turn!`).css('color', 'blue')
   }
+
   checkForDraw()
   checkForWin()
+  //ifGameover()
 }
 
 const checkForDraw = function() {
   if ($('#0').html() !== '' && $('#1').html() !== '' && $('#2').html() !== '' && $('#3').html() !== '' && $('#4').html() !== '' && $('#5').html() !== '' && $('#6').html() !== '' && $('#7').html() !== '' && $('#8').html() !== '') {
     //console.log('It is a tie!')
     $('#game-message').html(`It's a tie!`)
-    gameover = true
     $('.box').off('click', onBoxClicked)
   }
 }
 
 const checkForWin = function() {
   // HORIZONTAL
-  if(($('#0').html() === 'X' && $('#1').html() === 'X' && $('#2').html() === 'X') || ($('#0').html() === 'O' && $('#1').html() === 'O' && $('#2').html() === 'O')) {
-    //console.log('Winner!')
+  if($('#0').html() !== '' && $('#0').html() === $('#1').html() && $('#0').html() ===  $('#2').html()) {
+    console.log('Winner!')
     $('#game-message').html(`Winner!`)
-    gameover = true
     $('.box').off('click', onBoxClicked)
-  } else if(($('#3').html() === 'X' && $('#4').html() === 'X' && $('#5').html() === 'X') || ($('#3').html() === 'O' && $('#4').html() === 'O' && $('#5').html() === 'O')) {
-  } else if(($('#6').html() === 'X' && $('#7').html() === 'X' && $('#8').html() === 'X') || ($('#6').html() === 'O' && $('#7').html() === 'O' && $('#8').html() === 'O')) {
+  } else if($('#3').html() !== '' && $('#3').html() === $('#4').html() && $('#3').html() ===  $('#5').html()){
+    $('#game-message').html(`Winner!`)
+    $('.box').off('click', onBoxClicked)
+  } else if($('#6').html() !== '' && $('#6').html() === $('#7').html() && $('#6').html() ===  $('#8').html()) {
     //console.log('Winner!')
     $('#game-message').html(`Winner!`)
-    gameover = true
     $('.box').off('click', onBoxClicked)
   //VERTICAL
-  } else if(($('#0').html() === 'X' && $('#3').html() === 'X' && $('#6').html() === 'X') || ($('#0').html() === 'O' && $('#3').html() === 'O' && $('#6').html() === 'O')) {
+} else if($('#0').html() !== '' && $('#0').html() === $('#3').html() && $('#0').html() ===  $('#6').html()) {
     //console.log('Winner!')
     $('#game-message').html(`Winner!`)
-    gameover = true
     $('.box').off('click', onBoxClicked)
-  } else if(($('#1').html() === 'X' && $('#4').html() === 'X' && $('#7').html() === 'X') || ($('#1').html() === 'O' && $('#4').html() === 'O' && $('#7').html() === 'O')) {
+  } else if($('#1').html() !== '' && $('#1').html() === $('#4').html() && $('#1').html() ===  $('#7').html()) {
     //console.log('Winner!')
     $('#game-message').html(`Winner!`)
-    gameover = true
     $('.box').off('click', onBoxClicked)
-  } else if(($('#2').html() === 'X' && $('#5').html() === 'X' && $('#8').html() === 'X') || ($('#3').html() === 'O' && $('#5').html() === 'O' && $('#8').html() === 'O')) {
+  } else if($('#2').html() !== '' && $('#2').html() === $('#5').html() && $('#2').html() ===  $('#8').html()) {
     //console.log('Winner!')
     $('#game-message').html(`Winner!`)
-    gameover = true
     $('.box').off('click', onBoxClicked)
   // // DIAGONAL
-  } else if(($('#0').html() === 'X' && $('#4').html() === 'X' && $('#8').html() === 'X') || ($('#0').html() === 'O' && $('#4').html() === 'O' && $('#8').html() === 'O')) {
+} else if($('#0').html() !== '' && $('#0').html() === $('#4').html() && $('#0').html() ===  $('#8').html()) {
     //console.log('Winner!')
     $('#game-message').html(`Winner!`)
-    gameover = true
     $('.box').off('click', onBoxClicked)
-  } else if(($('#2').html() === 'X' && $('#4').html() === 'X' && $('#6').html() === 'X') || ($('#2').html() === 'O' && $('#4').html() === 'O' && $('#6').html() === 'O')) {
+  } else if($('#2').html() !== '' && $('#2').html() === $('#4').html() && $('#2').html() ===  $('#6').html()) {
     //console.log('Winner!')
     $('#game-message').html(`Winner!`)
-    gameover = true
     $('.box').off('click', onBoxClicked)
   }
 }
+
+// const ifGameover = function() {
+//   if (checkForWin) {
+//     gameover = true
+//   } else {
+//     gameover = false
+//   }
+// }
 
 module.exports = {
   onBoxClicked,

@@ -14,7 +14,7 @@ const createGame = function() {
   })
 }
 
-const updateGame = function(index, value) {
+const updateGame = function(index, value, gameover) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game.id,
@@ -27,7 +27,7 @@ const updateGame = function(index, value) {
           'index': index,
           'value': value
         },
-      'over': 'false'
+      'over': gameover
       }
     }
   })

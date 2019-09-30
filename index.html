@@ -14,85 +14,80 @@
     <body>
 
 <!-- AUTH API -->
-    <div class="row">
-      <div class="col">
-        <div class="leftside">
-          <h1>Tic-Tac-Toe</h1>
-          <h4 id="message"></h4>
-          <div class="sign-up">
-            <h3>Sign-Up:</h3>
-            <form id="sign-up">
-              <input type="email" name="credentials[email]" placeholder="Enter email...">
-              <br>
-              <input type="password" name="credentials[password]" placeholder="Enter password...">
-              <br>
-              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
-              <br>
-              <button>Sign Up</button>
-            </form>
-          </div>
+      <div class="row">
+        <div class="col leftside">
+            <h1>Tic-Tac-Toe</h1>
+            <h4 id="message"></h4>
+            <div class="sign-up left">
+              <h3>Register:</h3>
+              <form id="sign-up">
+                <input type="email" name="credentials[email]" placeholder="Enter email...">
+                <br>
+                <input type="password" name="credentials[password]" placeholder="Enter password...">
+                <br>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
+                <br>
+                <button>Sign Up</button>
+              </form>
+            </div>
 
-          <div class="sign-in">
-            <h3>Sign-In:</h3>
-            <form id="sign-in">
-              <input type="email" name="credentials[email]" placeholder="Enter email...">
-              <br>
-              <input type="password" name="credentials[password]" placeholder="Enter password...">
-              <br>
-              <button>Sign In</button>
-            </form>
-          </div>
+            <div class="sign-in left">
+              <h3>Sign-In:</h3>
+              <form id="sign-in">
+                <input type="email" name="credentials[email]" placeholder="Enter email...">
+                <br>
+                <input type="password" name="credentials[password]" placeholder="Enter password...">
+                <br>
+                <button>Sign In</button>
+              </form>
+            </div>
 
-          <div class="change-password">
-            <h3>Change Password:</h3>
-            <form id="change-password">
-            <input type="password" name="passwords[old]" placeholder="Enter old password...">
-            <br>
-            <input type="password" name="passwords[new]" placeholder="Enter new password...">
-            <br>
-            <button>Submit</button>
-          </form>
-          </div>
+            <button class="sign-out" id="create-game">START</button>
 
-          <div class="sign-out">
-            <h3>Sign-Out:</h3>
-            <form id="sign-out">
-              <button>Sign Out</button>
+            <button class="sign-out" id="show-games">SCORES</button>
+
+            <div class="change-password left">
+              <h3>Change Password:</h3>
+              <form id="change-password">
+              <input type="password" name="passwords[old]" placeholder="Enter old password...">
+              <br>
+              <input type="password" name="passwords[new]" placeholder="Enter new password...">
+              <br>
+              <button>Submit</button>
             </form>
+            </div>
+
+            <div class="sign-out left">
+              <h3>Sign-Out:</h3>
+              <form id="sign-out">
+                <button>Sign Out</button>
+              </form>
           </div>
-          <button id="create-game">START</button>
+        </div>
+
+  <!-- GAME API -->
+
+
+  <!-- GAMEBOARD -->
+        <div class="col rightside">
+            <h4 id="game-message"></h4>
+            <h5 id="tile-taken"></h5>
+            <div id="gameboard">
+            <div id="new-game"></div>
+              <div class="row">
+                <div data-cell-index='0' class="col-4 box" id="0"></div>
+                <div data-cell-index='1' class="col-4 box" id="1"></div>
+                <div data-cell-index='2' class="col-4 box" id="2"></div>
+                <div data-cell-index='3' class="col-4 box" id="3"></div>
+                <div data-cell-index='4' class="col-4 box" id="4"></div>
+                <div data-cell-index='5' class="col-4 box" id="5"></div>
+                <div data-cell-index='6' class="col-4 box" id="6"></div>
+                <div data-cell-index='7' class="col-4 box" id="7"></div>
+                <div data-cell-index='8' class="col-4 box" id="8"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-<!-- GAME API -->
-
-
-<!-- GAMEBOARD -->
-      <div class="col">
-        <div class="rightside">
-        <div class="container">
-          <h4 id="game-message"></h4>
-          <h5 id="tile-taken"></h5>
-          <table id="gameboard">
-            <tr class="row">
-              <td data-cell-index='0' class="col-4 box" id="0"></td>
-              <td data-cell-index='1' class="col-4 box" id="1"></td>
-              <td data-cell-index='2' class="col-4 box" id="2"></td>
-            </tr>
-            <tr class="row">
-              <td data-cell-index='3' class="col-4 box" id="3"></td>
-              <td data-cell-index='4' class="col-4 box" id="4"></td>
-              <td data-cell-index='5' class="col-4 box" id="5"></td>
-            </tr>
-            <tr class="row">
-              <td data-cell-index='6' class="col-4 box" id="6"></td>
-              <td data-cell-index='7' class="col-4 box" id="7"></td>
-              <td data-cell-index='8' class="col-4 box" id="8"></td>
-            </tr>
-          </table>
-        </div>
-        </div>
-      </div>
-    </div>
     </body>
 </html>
