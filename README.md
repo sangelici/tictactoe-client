@@ -4,6 +4,7 @@ A good majority of people know the game of Tic-Tac-Toe, it's a well loved classi
 
 # Link to live game!
 
+[Tic-Tac-Toe](https://sangelici.github.io/tictactoe-client/)
 
 
 # Story
