@@ -6,22 +6,15 @@ const ui = require('./ui.js')
 const store = require ('../store.js')
 
 const onCreateGame = function(event) {
+  event.preventDefault()
   playerTurn = true
   winner = false
   $('.box').text('')
   $('.box').css('border-color', '#728CFF')
   $('.box').on('click', onBoxClicked)
-  event.preventDefault()
   api.createGame()
     .then(ui.onCreateGameSuccess)
 }
-
-// const onNewGame = function(event) {
-//
-//   event.preventDefault()
-//   api.createGame()
-//     .then(ui.onCreateGameSuccess)
-// }
 
 const onUpdateGame = function(event) {
   event.preventDefault()
@@ -37,16 +30,16 @@ const onShowGames = function() {
 
 //GAME LOGIC
 
-const gameboard = ["","","", "","","","","",""]
-let draw = false
+const gameboard = ["","","","","","","","",""]
 let playerTurn = true
+let draw = false
 let winner = false
 let gameover = false
 
 const onBoxClicked = function(event) {
   event.preventDefault()
   let letter = playerTurn ? 'X' : 'O'
-  console.log(letter)
+  console.log(letter)  //Third game, logs both X and O at same time??? what???
   if ($(event.target).html() === ""){
     $(event.target).html(letter).css('color', '#FF8E51').css('font-family', 'Cute Font')
   } else {
@@ -63,14 +56,12 @@ const onBoxClicked = function(event) {
   checkForDraw()
   checkForWin()
   //console.log(winner) //*********WORKS
-
   if (winner === true || draw === true) {
     gameover = true
   } else {
     gameover = false
   }
   //console.log(gameover) // *******WORKS
-
   api.updateGame(event.target.id, letter, gameover)
     .then(ui.onUpdateGameSuccess)
 }
@@ -91,8 +82,9 @@ const checkForDraw = function() {
 
     $('#game-message').html(`It's a Tie!`).css('color', '#EE6352').css('background-color', '#ffffff')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
+    $('#create-game').text('Play Again?')
+    // $('#create-game').hide()
+    // $('#new-game').show()
   }
 }
 
@@ -107,9 +99,10 @@ const checkForWin = function() {
     $('#1').css('border-color', '#3DFF4D')
     $('#2').css('border-color', '#3DFF4D')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
-    $('#new-game').on('click', onCreateGame)
+    $('#create-game').text('Play Again?')
+    // $('#create-game').hide()
+    // $('#new-game').show()
+    // $('#new-game').on('click', onCreateGame)
   } else if($('#3').html() !== '' && $('#3').html() === $('#4').html() && $('#3').html() ===  $('#5').html()){
     winner = true
     $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
@@ -117,9 +110,10 @@ const checkForWin = function() {
     $('#4').css('border-color', '#3DFF4D')
     $('#5').css('border-color', '#3DFF4D')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
-    $('#new-game').on('click', onCreateGame)
+    $('#create-game').text('Play Again?')
+    // $('#create-game').hide()
+    // $('#new-game').show()
+    // $('#new-game').on('click', onCreateGame)
   } else if($('#6').html() !== '' && $('#6').html() === $('#7').html() && $('#6').html() ===  $('#8').html()) {
     //console.log('Winner!')
     winner = true
@@ -128,9 +122,10 @@ const checkForWin = function() {
     $('#7').css('border-color', '#3DFF4D')
     $('#8').css('border-color', '#3DFF4D')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
-    $('#new-game').on('click', onCreateGame)
+    $('#create-game').text('Play Again?')
+    // $('#create-game').hide()
+    // $('#new-game').show()
+    // $('#new-game').on('click', onCreateGame)
   //VERTICAL
 } else if($('#0').html() !== '' && $('#0').html() === $('#3').html() && $('#0').html() ===  $('#6').html()) {
     //console.log('Winner!')
@@ -140,9 +135,9 @@ const checkForWin = function() {
     $('#3').css('border-color', '#3DFF4D')
     $('#6').css('border-color', '#3DFF4D')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
-    $('#new-game').on('click', onCreateGame)
+    // $('#create-game').hide()
+    // $('#new-game').show()
+    // $('#new-game').on('click', onCreateGame)
   } else if($('#1').html() !== '' && $('#1').html() === $('#4').html() && $('#1').html() ===  $('#7').html()) {
     //console.log('Winner!')
     winner = true
@@ -151,9 +146,10 @@ const checkForWin = function() {
     $('#4').css('border-color', '#3DFF4D')
     $('#7').css('border-color', '#3DFF4D')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
-    $('#new-game').on('click', onCreateGame)
+    $('#create-game').text('Play Again?')
+    // $('#create-game').hide()
+    // $('#new-game').show()
+    // $('#new-game').on('click', onCreateGame)
   } else if($('#2').html() !== '' && $('#2').html() === $('#5').html() && $('#2').html() ===  $('#8').html()) {
     //console.log('Winner!')
     winner = true
@@ -162,9 +158,10 @@ const checkForWin = function() {
     $('#5').css('border-color', '#3DFF4D')
     $('#8').css('border-color', '#3DFF4D')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
-    $('#new-game').on('click', onCreateGame)
+    $('#create-game').text('Play Again?')
+    // $('#create-game').hide()
+    // $('#new-game').show()
+    // $('#new-game').on('click', onCreateGame)
   // // DIAGONAL
 } else if($('#0').html() !== '' && $('#0').html() === $('#4').html() && $('#0').html() ===  $('#8').html()) {
     //console.log('Winner!')
@@ -174,9 +171,10 @@ const checkForWin = function() {
     $('#4').css('border-color', '#3DFF4D')
     $('#8').css('border-color', '#3DFF4D')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
-    $('#new-game').on('click', onCreateGame)
+    $('#create-game').text('Play Again?')
+    // $('#create-game').hide()
+    // $('#new-game').show()
+    // $('#new-game').on('click', onCreateGame)
   } else if($('#2').html() !== '' && $('#2').html() === $('#4').html() && $('#2').html() ===  $('#6').html()) {
     //console.log('Winner!')
     winner = true
@@ -185,9 +183,10 @@ const checkForWin = function() {
     $('#4').css('border-color', '#3DFF4D')
     $('#6').css('border-color', '#3DFF4D')
     $('.box').off('click', onBoxClicked)
-    $('#create-game').hide()
-    $('#new-game').show()
-    $('#new-game').on('click', onCreateGame)
+    $('#create-game').text('Play Again?')
+    // $('#create-game').hide()
+    // $('#new-game').show()
+    // $('#new-game').on('click', onCreateGame)
   }
 }
 
@@ -195,5 +194,5 @@ module.exports = {
   onBoxClicked,
   onCreateGame,
   onUpdateGame,
-  onShowGames,
+  onShowGames
 }

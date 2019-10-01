@@ -29,11 +29,11 @@ const onSignUpSuccess = function() {
 }
 
 const onSignUpFailure = function() {
-  failureMessage(`Sign-Up failed, please enter a valid email and/or password`)
+  failureMessage('Sign-Up failed, please enter valid email')
 }
 
 const onSignInSuccess = function(responseData) {
-  successMessage(`You've signed in!`)
+  successMessage('You\'ve signed in!')
   store.user = responseData.user
   $('.sign-up').hide()
   $('.sign-in').hide()
@@ -41,32 +41,37 @@ const onSignInSuccess = function(responseData) {
   $('.sign-out').show()
   $('#create-game').show()
   $('#show-games').show()
-  // $('#curtain').hide()
+  $('#curtain').text('Press Start!')
 }
 
 const onSignInFailure = function() {
-  failureMessage(`Entry Invalid. Please try to sign in again`)
+  failureMessage('Entry Invalid. Please try to sign in again')
 }
 
 const onChangePasswordSuccess = function() {
-  successMessage(`Your password has been updated!`)
+  successMessage('Password updated!')
 }
 
 const onChangePasswordFailure = function() {
-  failureMessage(`Entry failed, please enter a valid password`)
+  failureMessage(`Entry failed, PLease enter valid password`)
 }
 
 const onSignOutSuccess = function() {
-  successMessage(`You have signed out!`)
+  successMessage(`Signed out!`)
   $('.sign-up').show()
   $('.sign-in').show()
   $('.change-password').hide()
   $('.menu2').hide()
+  $('#game-message').hide()
   $('#game-stats').hide()
+  $('.box').text('')
+  $('.box').css('border-color', '#728CFF')
+  $('#curtain').text('Sign Up or Sign In to play!').show()
+
 }
 
 const onSignOutFailure = function() {
-  failureMessage(`Sign out attempt failed, please try to sign out again`)
+  failureMessage(`Sign out failed, please try again`)
 }
 
 

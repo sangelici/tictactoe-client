@@ -17,7 +17,7 @@ h1 {
   color: #728CFF;
   font-family: 'Monofett';
   font-size: 90px;
-  margin: 45px;
+  margin: 20px;
   text-align: center;
 }
 
@@ -99,6 +99,16 @@ html,body {
   margin-top: 20px;
 }
 
+#curtain {
+  background-color:#FF8E31;
+  border-radius: 10%;
+  color: #F2F4FF;
+  font-size: 50px;
+  height: 80px;
+  position: absolute;
+  z-index: 100;
+}
+
 #gameboard {
   align-items: center;
   display: flex;
@@ -106,15 +116,6 @@ html,body {
   margin: 60px;
   z-index: 0;
 }
-
-// #curtain {
-//   color: #F2F4FF;
-//   background-color:#FF8E31;
-//   height: 80px;
-//   font-size: 50px;
-//   position: absolute;
-//   z-index: 100;
-// }
 
 #game-message {
   display: flex;
@@ -124,7 +125,12 @@ html,body {
   margin: 20px auto;
   font-size: 40px;
   background-color: white;
-  width: 300px;
+  width: 500px;
+}
+
+#message {
+  margin: 20px auto;
+  width: 350px;
 }
 
 #tile-taken {

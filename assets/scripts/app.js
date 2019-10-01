@@ -14,5 +14,5 @@ $(() => {
   $('#show-games').on('click', gameEvents.onShowGames)
   $('.change-password').hide()
   $('.menu2').hide()
-  $('#new-game').hide()
+  // $('#new-game').hide()
 })
