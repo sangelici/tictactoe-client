@@ -56,3 +56,4 @@ Looking back, when I was building my game, the project was difficult and, at tim
 
 <img src="Tic-Tac-Toe Wireframe.jpeg"
      alt="Tic Tac Toe Wireframe"
+     style="float: left; margin-right: 10px;" />
