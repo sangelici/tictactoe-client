@@ -4,11 +4,7 @@ A good majority of people know the game of Tic-Tac-Toe, it's a well loved classi
 
 # Link to live game!
 
-```HTML
-<img src="Tic-Tac-Toe Wireframe.jpeg"
-     alt="Tic Tac Toe Wireframe"
-     style="float: left; margin-right: 10px;" />
-```
+
 
 # Story
 
@@ -57,3 +53,6 @@ Looking back, when I was building my game, the project was difficult and, at tim
   -Tighten up CSS by utilizing more sass and adding variable usage
 
 # Wireframe:
+
+<img src="Tic-Tac-Toe Wireframe.jpeg"
+     alt="Tic Tac Toe Wireframe"
