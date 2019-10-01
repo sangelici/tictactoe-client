@@ -3,7 +3,6 @@
 const store = require ('../store.js')
 
 
-
 const successMessage = function(newText) {
   $('#message').text(newText)
   $('#message').removeClass('failure')
@@ -50,10 +49,12 @@ const onSignInFailure = function() {
 
 const onChangePasswordSuccess = function() {
   successMessage('Password updated!')
+  $('#message').show()
 }
 
 const onChangePasswordFailure = function() {
   failureMessage(`Entry failed, PLease enter valid password`)
+  $('#message').show()
 }
 
 const onSignOutSuccess = function() {
@@ -66,8 +67,8 @@ const onSignOutSuccess = function() {
   $('#game-stats').hide()
   $('.box').text('')
   $('.box').css('border-color', '#728CFF')
-  $('#curtain').text('Sign Up or Sign In to play!').show()
-
+  $('#curtain').text('Sign Up or Sign In to play!')
+  $('#curtain').show()
 }
 
 const onSignOutFailure = function() {

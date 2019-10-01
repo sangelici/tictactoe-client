@@ -20,6 +20,7 @@ const onCreateGameSuccess = function(responseData) {
   successMessage('Game has Started!')
   store.game = responseData.game
   $('#curtain').hide()
+  $('#message').hide()
 }
 
 const onCreateGameFailure = function() {

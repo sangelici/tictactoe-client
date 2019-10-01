@@ -6,22 +6,41 @@
 * { padding: 0; margin: 0; }
 
 button {
+  color: #F2F4FF;
   font-size: 20px;
-  margin: 10px;
+  margin: 5px;
   background-color: #FF8E51;
   border: 3px solid #9BAFFF;
   padding: 8px;
 }
 
+div {
+  & .sign-up.left {
+    border-radius: 20% 20% 0 0;
+  }
+  & .sign-in.left {
+    border-radius: 0 0 20% 20%;
+  }
+  & .change-password.left {
+    border-radius: 20% 20% 0 0;
+  }
+  & .sign-out.left {
+    border-radius: 0 0 20% 20%;
+  }
+}
+
 h1 {
   color: #728CFF;
   font-family: 'Monofett';
-  font-size: 90px;
-  margin: 20px;
+  font-size: 120px;
+  margin-top: 15px;
   text-align: center;
 }
 
 h3 {
+  color: #F2F4FF;
+  font-weight: bold;
+  font-size: 40px;
 }
 
 html,body {
@@ -39,11 +58,10 @@ html,body {
   height: 25vh;
   justify-content: center;
   width: 25vh;
-
 }
 
 .change-password {
-  border: 10px solid #F2F4FF;
+  border: 8px solid #F2F4FF;
   background-color: #728CFF;
   padding: 15px;
 }
@@ -71,18 +89,18 @@ html,body {
 }
 
 .sign-up {
-  border: 10px solid #F2F4FF;
+  border: 8px solid #F2F4FF;
   background-color: #728CFF;
   padding: 15px;
 }
 .sign-in {
-  border: 10px solid #F2F4FF;
+  border: 8px solid #F2F4FF;
   background-color: #728CFF;
   padding: 15px;
 }
 
 .sign-out{
-  border: 10px solid #F2F4FF;
+  border: 8px solid #F2F4FF;
   background-color: #728CFF;
   padding: 15px;
 }
@@ -128,8 +146,14 @@ html,body {
   width: 500px;
 }
 
+#game-stats {
+  background-color: #F2F4FF;
+  margin: 0 auto;
+  width: 175px;
+}
+
 #message {
-  margin: 20px auto;
+  margin: 5px auto;
   width: 350px;
 }
 
