@@ -19,11 +19,11 @@ const failureMessage = function(newText) {
 const onSignUpSuccess = function() {
   successMessage(`You've signed up successfully!`)
   $('.sign-up').hide()
-  $('.sign-in').hide()
-  $('.change-password').show()
-  $('.sign-out').show()
-  $('#create-game').show()
-  $('#show-games').show()
+  //$('.sign-in').hide()
+  //$('.change-password').show()
+  //$('.sign-out').show()
+  //$('#create-game').show()
+  //$('#show-games').show()
   // $('#curtain').hide()
 }
 

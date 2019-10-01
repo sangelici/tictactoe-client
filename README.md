@@ -1,6 +1,8 @@
 # Tic-Tac-Toe: Description
 
-A good majority of people know the game of Tic-Tac-Toe, it's a well loved classic. I have built an application which allows the user to play as many games as they like! This is my first project within the General Assembly Software Engineering Immersive course.
+This is a single page application for the well loved classic game: Tic-Tac-Toe. The user can sign up and sign in with their email and password and start a game. Each piece is placed manually into the board and placing three in a row will signal a win, or if the board if filled with without a match, the game will declare a tie! As a user plays games, the background API will log the completed games and the user can see the total in the game history. The application was to be completed within a 4 day period (with a weekend squeezed in!) without any user facing bugs and responsive game play. 
+
+A good majority of people know the game of Tic-Tac-Toe, it's a well loved classic! I have built an application which allows the user to play as many games as they like! This is my first project within the General Assembly Software Engineering Immersive course.
 
 # Link to live game!
 
