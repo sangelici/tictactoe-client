@@ -63,6 +63,7 @@ const onSignOutSuccess = function() {
   $('.sign-in').show()
   $('.change-password').hide()
   $('.menu2').hide()
+  $('#tile-taken').hide()
   $('#game-message').hide()
   $('#game-stats').hide()
   $('.box').text('')
