@@ -19,12 +19,6 @@ const failureMessage = function(newText) {
 const onSignUpSuccess = function() {
   successMessage(`You've signed up successfully!`)
   $('.sign-up').hide()
-  //$('.sign-in').hide()
-  //$('.change-password').show()
-  //$('.sign-out').show()
-  //$('#create-game').show()
-  //$('#show-games').show()
-  // $('#curtain').hide()
 }
 
 const onSignUpFailure = function() {
@@ -38,9 +32,13 @@ const onSignInSuccess = function(responseData) {
   $('.sign-in').hide()
   $('.change-password').show()
   $('.sign-out').show()
-  $('#create-game').show()
+  $('#create-game').text("START").show()
   $('#show-games').show()
   $('#curtain').text('Press Start!')
+  $('#tile-taken').show()
+  $('#game-message').text('').show()
+  $('#game-stats').show()
+
 }
 
 const onSignInFailure = function() {
@@ -70,6 +68,7 @@ const onSignOutSuccess = function() {
   $('.box').css('border-color', '#728CFF')
   $('#curtain').text('Sign Up or Sign In to play!')
   $('#curtain').show()
+  $('.box').off('click', onBoxClicked)
 }
 
 const onSignOutFailure = function() {

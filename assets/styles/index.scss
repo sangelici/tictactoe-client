@@ -6,11 +6,11 @@
 * { padding: 0; margin: 0; }
 
 button {
-  color: #F2F4FF;
+  color: $highlight;
   font-size: 20px;
   margin: 5px;
-  background-color: #FF8E51;
-  border: 3px solid #9BAFFF;
+  background-color: $primary-contrast-color;
+  border: 3px solid $secondary-accent-color;
   padding: 8px;
 }
 
@@ -30,7 +30,7 @@ div {
 }
 
 h1 {
-  color: #728CFF;
+  color: $primary-box-color;
   font-family: 'Monofett';
   font-size: 120px;
   margin-top: 15px;
@@ -45,13 +45,14 @@ h3 {
 
 html,body {
   height:100%;
-  background-color: #C1CDFF;
+  background-color: $primary-background-color;
+  overflow-x: hidden;
 }
 
 .box {
   align-items: center;
-  background-color: #F2F4FF;
-  border: 15px double #728CFF;
+  background-color: $highlight;
+  border: 15px double $primary-box-color;
   border-radius: 10%;
   display: flex;
   font-size: 125px;
@@ -61,13 +62,13 @@ html,body {
 }
 
 .change-password {
-  border: 8px solid #F2F4FF;
-  background-color: #728CFF;
+  border: 8px solid $highlight;
+  background-color: $primary-box-color;
   padding: 15px;
 }
 
 .failure {
-  color: #FF0700;
+  color: $failure-red;
   font-style: italic;
 }
 
@@ -81,33 +82,30 @@ html,body {
 }
 
 .menu2 {
-  background-color: #FF8E51;
-  border: 3px solid #9BAFFF;
-}
-
-.rightside {
+  background-color: $primary-contrast-color;
+  border: 3px solid $secondary-accent-color;
 }
 
 .sign-up {
-  border: 8px solid #F2F4FF;
-  background-color: #728CFF;
+  border: 8px solid $highlight;
+  background-color: $primary-box-color;
   padding: 15px;
 }
 .sign-in {
-  border: 8px solid #F2F4FF;
-  background-color: #728CFF;
+  border: 8px solid $highlight;
+  background-color: $primary-box-color;
   padding: 15px;
 }
 
 .sign-out{
-  border: 8px solid #F2F4FF;
-  background-color: #728CFF;
+  border: 8px solid $highlight;
+  background-color: $primary-box-color;
   padding: 15px;
 }
 
 .success {
   background-color: #ffffff;
-  color: #FF8E51;
+  color: $primary-contrast-color;
   font-style: italic;
 }
 
@@ -118,7 +116,7 @@ html,body {
 }
 
 #curtain {
-  background-color:#FF8E31;
+  background-color:$primary-contrast-color;
   border-radius: 10%;
   color: #F2F4FF;
   font-size: 35px;
@@ -142,12 +140,12 @@ html,body {
   margin-top: 20px;
   margin: 20px auto;
   font-size: 40px;
-  background-color: white;
+  background-color: #fffff;
   width: 500px;
 }
 
 #game-stats {
-  background-color: #F2F4FF;
+  background-color: $highlight;
   margin: 0 auto;
   width: 175px;
 }
@@ -171,11 +169,31 @@ html,body {
     font-size: 40px;
     height: 70px;
   }
+  #message {
+    margin: 5px auto;
+    width: 100%;
+  }
+  #game-message {
+    width: 100%;
+  }
+  html {
+    margin: 0 auto;
+  }
 }
 
 @media only screen and (max-width: 472px) {
   #curtain {
     font-size: 20px;
     height: 40px;
+  }
+  #game-message {
+    width: 100%;
+  }
+  #message {
+    margin: 5px auto;
+    width: 100%;
+  }
+  html {
+    margin: 0 auto;
   }
 }

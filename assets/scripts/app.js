@@ -10,9 +10,9 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#create-game').on('click', gameEvents.onCreateGame)
-  $('#gameboard').on('click', gameEvents.onUpdateGame)
+  $('.box').on('click', gameEvents.onUpdateGame) //onCreateGame? onBoxClicked?
   $('#show-games').on('click', gameEvents.onShowGames)
+  $('#audio').on('click', ) //need to create
   $('.change-password').hide()
   $('.menu2').hide()
-  // $('#new-game').hide()
 })

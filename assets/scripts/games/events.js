@@ -1,74 +1,68 @@
 'use-strict'
 
-//const getFormFields = require ('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require ('../store.js')
 
-const onCreateGame = function(event) {
-  event.preventDefault()
-  playerTurn = true
-  winner = false
-  $('.box').text('')
-  $('.box').css('border-color', '#728CFF')
-  $('.box').on('click', onBoxClicked)
-  api.createGame()
-    .then(ui.onCreateGameSuccess)
-}
-
-const onUpdateGame = function(event) {
-  event.preventDefault()
-  store.id = $(event.target).attr('data-cell-index')
-}
-
-const onShowGames = function() {
-    event.preventDefault()
-    api.showGames()
-      .then(ui.onShowGamesSuccess)
-      .catch(ui.onShowGamesFailure)
-}
-
-//GAME LOGIC
-
+//______________________________________GLOBALS
 const gameboard = ["","","","","","","","",""]
 let playerTurn = true
 let draw = false
 let winner = false
 let gameover = false
 
+const onCreateGame = function(event) {
+  event.preventDefault()
+  reset()
+  api.createGame()
+    .then(ui.onCreateGameSuccess)
+}
+const onUpdateGame = function(event) {
+  event.preventDefault()
+  store.id = $(event.target).attr('data-cell-index')
+}
+const onShowGames = function() {
+    event.preventDefault()
+    api.showGames()
+      .then(ui.onShowGamesSuccess)
+      .catch(ui.onShowGamesFailure)
+}
+//______________________________________GAME LOGIC
 const onBoxClicked = function(event) {
   event.preventDefault()
   let letter = playerTurn ? 'X' : 'O'
-  console.log(letter)  //Third game, logs both X and O at same time??? what???
+  console.log(letter)
   if ($(event.target).html() === ""){
     $(event.target).html(letter).css('color', '#FF8E51').css('font-family', 'Cute Font')
+    if(playerTurn) {
+      playerTurn = false
+      $('#game-message').text(`O's Turn!`).css('color', 'blue')
+    } else {
+      playerTurn = true
+      $('#game-message').text(`X's Turn!`).css('color', '#FF8E51')
+    }
+    checkForDraw()
+    checkForWin()
+    if (winner === true || draw === true) {
+      gameover = true
+    } else {
+      gameover = false
+    }
+    api.updateGame(event.target.id, letter, gameover)
+      .then(ui.onUpdateGameSuccess)
+    $('#tile-taken').hide()
   } else {
-    $('#tile-taken').text('Tile has been taken')
+    $('#tile-taken').text('Tile taken!').show()
   }
-
-  if(playerTurn) {
-    playerTurn = false
-    $('#game-message').text(`O's Turn!`).css('color', 'blue')
-  } else {
-    playerTurn = true
-    $('#game-message').text(`X's Turn!`).css('color', '#FF8E51')
-  }
-  checkForDraw()
-  checkForWin()
-  //console.log(winner) //*********WORKS
-  if (winner === true || draw === true) {
-    gameover = true
-  } else {
-    gameover = false
-  }
-  //console.log(gameover) // *******WORKS
-  api.updateGame(event.target.id, letter, gameover)
-    .then(ui.onUpdateGameSuccess)
 }
-
+const winStyling = function() {
+  $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+  $('.box').off('click', onBoxClicked)
+  $('#create-game').text('Play Again?')
+  // use variables or an if statement to create win highlight to DRY code
+}
 const checkForDraw = function() {
   if ($('#0').html() !== '' && $('#1').html() !== '' && $('#2').html() !== '' && $('#3').html() !== '' && $('#4').html() !== '' && $('#5').html() !== '' && $('#6').html() !== '' && $('#7').html() !== '' && $('#8').html() !== '') {
-    //console.log('It is a tie!')
     draw = true
     $('#0').css('border-color', '#EE6352')
     $('#1').css('border-color', '#EE6352')
@@ -79,115 +73,82 @@ const checkForDraw = function() {
     $('#6').css('border-color', '#EE6352')
     $('#7').css('border-color', '#EE6352')
     $('#8').css('border-color', '#EE6352')
-
     $('#game-message').html(`It's a Tie!`).css('color', '#EE6352').css('background-color', '#ffffff')
     $('.box').off('click', onBoxClicked)
     $('#create-game').text('Play Again?')
-    // $('#create-game').hide()
-    // $('#new-game').show()
   }
 }
-
 const checkForWin = function() {
   // HORIZONTAL
   if($('#0').html() !== '' && $('#0').html() === $('#1').html() && $('#0').html() ===  $('#2').html()) {
-    //console.log('Winner!')
     winner = true
-    //console.log(winner) //***********WORKS
-    $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+    winStyling()
     $('#0').css('border-color', '#3DFF4D')
     $('#1').css('border-color', '#3DFF4D')
     $('#2').css('border-color', '#3DFF4D')
-    $('.box').off('click', onBoxClicked)
-    $('#create-game').text('Play Again?')
-    // $('#create-game').hide()
-    // $('#new-game').show()
-    // $('#new-game').on('click', onCreateGame)
   } else if($('#3').html() !== '' && $('#3').html() === $('#4').html() && $('#3').html() ===  $('#5').html()){
     winner = true
-    $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+    winStyling()
     $('#3').css('border-color', '#3DFF4D')
     $('#4').css('border-color', '#3DFF4D')
     $('#5').css('border-color', '#3DFF4D')
-    $('.box').off('click', onBoxClicked)
-    $('#create-game').text('Play Again?')
-    // $('#create-game').hide()
-    // $('#new-game').show()
-    // $('#new-game').on('click', onCreateGame)
   } else if($('#6').html() !== '' && $('#6').html() === $('#7').html() && $('#6').html() ===  $('#8').html()) {
-    //console.log('Winner!')
     winner = true
-    $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+    winStyling()
     $('#6').css('border-color', '#3DFF4D')
     $('#7').css('border-color', '#3DFF4D')
     $('#8').css('border-color', '#3DFF4D')
-    $('.box').off('click', onBoxClicked)
-    $('#create-game').text('Play Again?')
-    // $('#create-game').hide()
-    // $('#new-game').show()
-    // $('#new-game').on('click', onCreateGame)
   //VERTICAL
 } else if($('#0').html() !== '' && $('#0').html() === $('#3').html() && $('#0').html() ===  $('#6').html()) {
-    //console.log('Winner!')
     winner = true
-    $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+    winStyling()
     $('#0').css('border-color', '#3DFF4D')
     $('#3').css('border-color', '#3DFF4D')
     $('#6').css('border-color', '#3DFF4D')
-    $('.box').off('click', onBoxClicked)
-    // $('#create-game').hide()
-    // $('#new-game').show()
-    // $('#new-game').on('click', onCreateGame)
   } else if($('#1').html() !== '' && $('#1').html() === $('#4').html() && $('#1').html() ===  $('#7').html()) {
-    //console.log('Winner!')
     winner = true
-    $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+    winStyling()
     $('#1').css('border-color', '#3DFF4D')
     $('#4').css('border-color', '#3DFF4D')
     $('#7').css('border-color', '#3DFF4D')
-    $('.box').off('click', onBoxClicked)
-    $('#create-game').text('Play Again?')
-    // $('#create-game').hide()
-    // $('#new-game').show()
-    // $('#new-game').on('click', onCreateGame)
   } else if($('#2').html() !== '' && $('#2').html() === $('#5').html() && $('#2').html() ===  $('#8').html()) {
     //console.log('Winner!')
     winner = true
-    $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+    winStyling()
     $('#2').css('border-color', '#3DFF4D')
     $('#5').css('border-color', '#3DFF4D')
     $('#8').css('border-color', '#3DFF4D')
-    $('.box').off('click', onBoxClicked)
-    $('#create-game').text('Play Again?')
-    // $('#create-game').hide()
-    // $('#new-game').show()
-    // $('#new-game').on('click', onCreateGame)
   // // DIAGONAL
 } else if($('#0').html() !== '' && $('#0').html() === $('#4').html() && $('#0').html() ===  $('#8').html()) {
-    //console.log('Winner!')
     winner = true
-    $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+    winStyling()
     $('#0').css('border-color', '#3DFF4D')
     $('#4').css('border-color', '#3DFF4D')
     $('#8').css('border-color', '#3DFF4D')
-    $('.box').off('click', onBoxClicked)
-    $('#create-game').text('Play Again?')
-    // $('#create-game').hide()
-    // $('#new-game').show()
-    // $('#new-game').on('click', onCreateGame)
   } else if($('#2').html() !== '' && $('#2').html() === $('#4').html() && $('#2').html() ===  $('#6').html()) {
-    //console.log('Winner!')
     winner = true
-    $('#game-message').html(`Winner!`).css('color', '#3DFF4D').css('background-color', '#ffffff')
+    winStyling()
     $('#2').css('border-color', '#3DFF4D')
     $('#4').css('border-color', '#3DFF4D')
     $('#6').css('border-color', '#3DFF4D')
-    $('.box').off('click', onBoxClicked)
-    $('#create-game').text('Play Again?')
-    // $('#create-game').hide()
-    // $('#new-game').show()
-    // $('#new-game').on('click', onCreateGame)
   }
+}
+const reset = function() {
+  playerTurn = true
+  winner = false
+  $('#game-message').text('')
+  $('#tile-taken').text('')
+  $('.box').text('')
+  $('.box').css('border-color', '#728CFF')
+  $('.box').on('click', onBoxClicked)
+}
+//______________________________________MUSIC
+const onPlayMusic = function() {
+  let myAudio = document.getElementById("audio");
+
+  function togglePlay() {
+    return myAudio.paused ? myAudio.play() : myAudio.pause();
+};
 }
 
 module.exports = {
