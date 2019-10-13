@@ -147,13 +147,14 @@ const onPlayMusic = function() {
   let myAudio = document.getElementById("audio");
 
   function togglePlay() {
-    return myAudio.paused ? myAudio.play() : myAudio.pause();
-};
+    return myAudio.paused ? myAudio.play() : myAudio.pause()
+  }
 }
 
 module.exports = {
   onBoxClicked,
   onCreateGame,
   onUpdateGame,
-  onShowGames
+  onShowGames,
+  onPlayMusic
 }
