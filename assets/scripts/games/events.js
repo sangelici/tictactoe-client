@@ -144,6 +144,7 @@ const reset = function() {
 }
 //______________________________________MUSIC
 const onPlayMusic = function() {
+  console.log('I\'m clicked!')
   let myAudio = document.getElementById("audio");
 
   function togglePlay() {
