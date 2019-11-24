@@ -15,6 +15,17 @@ button {
   font-size: 20px;
   margin: 5px;
   padding: 8px;
+
+  &.audio {
+    border-radius: 30%;
+    margin-left: 50px;
+    padding: 5px;
+  }
+}
+
+footer {
+  margin-top: -20px;
+  position: relative;
 }
 
 h1 {
@@ -34,6 +45,7 @@ html,
 body {
   background-color: $primary-background-color;
   height: 100vh;
+  width: 98vw;
 }
 
 .box {
@@ -54,6 +66,10 @@ body {
   padding: 15px;
 }
 
+.credit {
+  display: inline;
+}
+
 .failure {
   color: $failure-red;
   font-style: italic;
@@ -66,6 +82,7 @@ body {
 
 .leftside {
   text-align: center;
+  margin-left: 30px;
 
   & .change-password {
     border-radius: 20% 20% 0 0;
@@ -102,12 +119,6 @@ body {
   background-color: #ffffff;
   color: $primary-contrast-color;
   font-style: italic;
-}
-
-#create-game,
-#new-game,
-#show-games {
-  margin-top: 20px;
 }
 
 #curtain {

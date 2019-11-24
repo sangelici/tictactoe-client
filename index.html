@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,6 +10,7 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body>
 
@@ -86,8 +87,12 @@
       </div>
     </body>
 
-    <button id="audio">
-      <audio autoplay loop src="assets/music/hello.mp3">
-      </audio>
-    </button>
+    <footer>
+      <button class="audio" id="play">
+        <img id="icon" src="public/play.png" />
+      </button>
+      <audio id="audio" loop src="assets/music/Clip.m4a"></audio>
+
+      <p class="credit">Created by: Sarah Angelici</p>
+    </footer>
 </html>

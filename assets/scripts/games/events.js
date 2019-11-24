@@ -146,20 +146,25 @@ const reset = function () {
   $('.box').css('border-color', '#728CFF')
   $('.box').on('click', onBoxClicked)
 }
+
 // ______________________________________MUSIC
-// const onPlayMusic = function() {
-//   console.log('I\'m clicked!')
-//   let myAudio = document.getElementById("audio");
-//
-//   function togglePlay() {
-//     return myAudio.paused ? myAudio.play() : myAudio.pause()
-//   }
-// }
+const onPlayMusic = function play () {
+  const audio = document.getElementById('audio')
+  // audio.play()
+  if (audio.paused) {
+    audio.play()
+    $('.audio').html('<img src="public/pause.png" alt="play-button"/>')
+  } else {
+    audio.pause()
+    audio.currentTime = 0
+    $('.audio').html('<img src="public/play.png" alt="play-button"/>')
+  }
+}
 
 module.exports = {
   onBoxClicked,
   onCreateGame,
   onUpdateGame,
-  onShowGames
-  // onPlayMusic
+  onShowGames,
+  onPlayMusic
 }
