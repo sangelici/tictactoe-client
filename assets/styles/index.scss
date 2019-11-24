@@ -3,30 +3,18 @@
 @import url('https://fonts.googleapis.com/css?family=Cute+Font|Dosis&display=swap');
 @import '~bootstrap/scss/bootstrap';
 
-* { padding: 0; margin: 0; }
+* {
+  margin: 0;
+  padding: 0;
+}
 
 button {
+  background-color: $primary-contrast-color;
+  border: 3px solid $secondary-accent-color;
   color: $highlight;
   font-size: 20px;
   margin: 5px;
-  background-color: $primary-contrast-color;
-  border: 3px solid $secondary-accent-color;
   padding: 8px;
-}
-
-div {
-  & .sign-up.left {
-    border-radius: 20% 20% 0 0;
-  }
-  & .sign-in.left {
-    border-radius: 0 0 20% 20%;
-  }
-  & .change-password.left {
-    border-radius: 20% 20% 0 0;
-  }
-  & .sign-out.left {
-    border-radius: 0 0 20% 20%;
-  }
 }
 
 h1 {
@@ -39,13 +27,14 @@ h1 {
 
 h3 {
   color: #F2F4FF;
-  font-weight: bold;
   font-size: 40px;
+  font-weight: bold;
 }
 
-html,body {
-  height:100%;
+html,
+body {
   background-color: $primary-background-color;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -62,8 +51,8 @@ html,body {
 }
 
 .change-password {
-  border: 8px solid $highlight;
   background-color: $primary-box-color;
+  border: 8px solid $highlight;
   padding: 15px;
 }
 
@@ -73,34 +62,42 @@ html,body {
 }
 
 .left {
-  max-width: 300px;
   margin: 0 auto;
+  max-width: 300px;
 }
 
 .leftside {
   text-align: center;
+
+  & .change-password {
+    border-radius: 20% 20% 0 0;
+  }
+
+  & .sign-in {
+    background-color: $primary-box-color;
+    border: 8px solid $highlight;
+    border-radius: 0 0 20% 20%;
+    padding: 15px;
+  }
+
+  & .sign-out {
+    background-color: $primary-box-color;
+    border: 8px solid $highlight;
+    border-radius: 0 0 20% 20%;
+    padding: 15px;
+  }
+
+  & .sign-up {
+    background-color: $primary-box-color;
+    border: 8px solid $highlight;
+    border-radius: 20% 20% 0 0;
+    padding: 15px;
+  }
 }
 
 .menu2 {
   background-color: $primary-contrast-color;
   border: 3px solid $secondary-accent-color;
-}
-
-.sign-up {
-  border: 8px solid $highlight;
-  background-color: $primary-box-color;
-  padding: 15px;
-}
-.sign-in {
-  border: 8px solid $highlight;
-  background-color: $primary-box-color;
-  padding: 15px;
-}
-
-.sign-out{
-  border: 8px solid $highlight;
-  background-color: $primary-box-color;
-  padding: 15px;
 }
 
 .success {
