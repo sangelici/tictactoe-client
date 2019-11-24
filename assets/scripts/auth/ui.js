@@ -8,7 +8,7 @@ const successMessage = function (newText) {
   $('#message').removeClass('failure')
   $('#message').addClass('success')
   $('form').trigger('reset')
-  setInterval(function () { successMessage('') }, 2000)
+  setInterval(function () { failureMessage('') }, 2000)
 }
 
 const failureMessage = function (newText) {
