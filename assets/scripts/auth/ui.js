@@ -1,18 +1,21 @@
 'use strict'
 
 const store = require('../store.js')
+const gameLogic = require('../games/events.js')
 
 const successMessage = function (newText) {
   $('#message').text(newText)
   $('#message').removeClass('failure')
   $('#message').addClass('success')
   $('form').trigger('reset')
+  setInterval(function () { successMessage('') }, 2000)
 }
 
 const failureMessage = function (newText) {
   $('#message').text(newText)
   $('#message').removeClass('success')
   $('#message').addClass('failure')
+  setInterval(function () { failureMessage('') }, 2000)
 }
 
 const onSignUpSuccess = function () {
@@ -66,7 +69,7 @@ const onSignOutSuccess = function () {
   $('.box').css('border-color', '#728CFF')
   $('#curtain').text('Sign Up or Sign In to play!')
   $('#curtain').show()
-  $('.box').off('click', onBoxClicked)
+  $('.box').off('click', gameLogic.onBoxClicked)
 }
 
 const onSignOutFailure = function () {
