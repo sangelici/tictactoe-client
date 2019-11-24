@@ -1,61 +1,59 @@
 'use strict'
 
-const store = require ('../store.js')
+const store = require('../store.js')
 
-
-const successMessage = function(newText) {
+const successMessage = function (newText) {
   $('#message').text(newText)
   $('#message').removeClass('failure')
   $('#message').addClass('success')
   $('form').trigger('reset')
 }
 
-const failureMessage = function(newText) {
+const failureMessage = function (newText) {
   $('#message').text(newText)
   $('#message').removeClass('success')
   $('#message').addClass('failure')
 }
 
-const onSignUpSuccess = function() {
+const onSignUpSuccess = function () {
   successMessage(`You've signed up successfully!`)
   $('.sign-up').hide()
 }
 
-const onSignUpFailure = function() {
+const onSignUpFailure = function () {
   failureMessage('Sign-Up failed, please enter valid email')
 }
 
-const onSignInSuccess = function(responseData) {
+const onSignInSuccess = function (responseData) {
   successMessage('You\'ve signed in!')
   store.user = responseData.user
   $('.sign-up').hide()
   $('.sign-in').hide()
   $('.change-password').show()
   $('.sign-out').show()
-  $('#create-game').text("START").show()
+  $('#create-game').text('START').show()
   $('#show-games').show()
   $('#curtain').text('Press Start!')
   $('#tile-taken').show()
   $('#game-message').text('').show()
   $('#game-stats').show()
-
 }
 
-const onSignInFailure = function() {
+const onSignInFailure = function () {
   failureMessage('Entry Invalid. Please try to sign in again')
 }
 
-const onChangePasswordSuccess = function() {
+const onChangePasswordSuccess = function () {
   successMessage('Password updated!')
   $('#message').show()
 }
 
-const onChangePasswordFailure = function() {
+const onChangePasswordFailure = function () {
   failureMessage(`Entry failed, PLease enter valid password`)
   $('#message').show()
 }
 
-const onSignOutSuccess = function() {
+const onSignOutSuccess = function () {
   successMessage(`Signed out!`)
   $('.sign-up').show()
   $('.sign-in').show()
@@ -71,10 +69,9 @@ const onSignOutSuccess = function() {
   $('.box').off('click', onBoxClicked)
 }
 
-const onSignOutFailure = function() {
+const onSignOutFailure = function () {
   failureMessage(`Sign out failed, please try again`)
 }
-
 
 module.exports = {
   onSignUpSuccess,

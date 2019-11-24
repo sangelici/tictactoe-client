@@ -143,19 +143,19 @@ const reset = function() {
   $('.box').on('click', onBoxClicked)
 }
 //______________________________________MUSIC
-const onPlayMusic = function() {
-  console.log('I\'m clicked!')
-  let myAudio = document.getElementById("audio");
-
-  function togglePlay() {
-    return myAudio.paused ? myAudio.play() : myAudio.pause()
-  }
-}
+// const onPlayMusic = function() {
+//   console.log('I\'m clicked!')
+//   let myAudio = document.getElementById("audio");
+//
+//   function togglePlay() {
+//     return myAudio.paused ? myAudio.play() : myAudio.pause()
+//   }
+// }
 
 module.exports = {
   onBoxClicked,
   onCreateGame,
   onUpdateGame,
-  onShowGames,
-  onPlayMusic
+  onShowGames
+  // onPlayMusic
 }

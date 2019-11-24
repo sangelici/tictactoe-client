@@ -1,12 +1,10 @@
 'use-strict'
 
-const getFormFields = require ('../../../lib/get-form-fields.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
-
-
-const onSignUp = function(event) {
+const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -15,7 +13,7 @@ const onSignUp = function(event) {
     .catch(ui.onSignUpFailure)
 }
 
-const onSignIn = function(event) {
+const onSignIn = function (event) {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -24,7 +22,7 @@ const onSignIn = function(event) {
     .catch(ui.onSignInFailure)
 }
 
-const onChangePassword = function(event) {
+const onChangePassword = function (event) {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -33,7 +31,7 @@ const onChangePassword = function(event) {
     .catch(ui.onChangePasswordFailure)
 }
 
-const onSignOut = function() {
+const onSignOut = function () {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
