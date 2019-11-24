@@ -21,7 +21,6 @@ h1 {
   color: $primary-box-color;
   font-family: 'Monofett';
   font-size: 115px;
-  margin-top: 15px;
   text-align: center;
 }
 
@@ -34,8 +33,7 @@ h3 {
 html,
 body {
   background-color: $primary-background-color;
-  height: 100%;
-  overflow-x: hidden;
+  height: 100vh;
 }
 
 .box {
