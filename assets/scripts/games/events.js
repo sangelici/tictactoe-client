@@ -5,7 +5,7 @@ const ui = require('./ui.js')
 const store = require('../store.js')
 
 // ______________________________________GLOBALS
-const gameboard = ['', '', '', '', '', '', '', '', '']
+// const gameboard = ['', '', '', '', '', '', '', '', '']
 let playerTurn = true
 let draw = false
 let winner = false
@@ -83,7 +83,7 @@ const checkForDraw = function () {
 }
 const checkForWin = function () {
   // HORIZONTAL
-  if ($('#0').html() !== '' && $('#0').html() === $('#1').html() && $('#0').html() ===  $('#2').html()) {
+  if ($('#0').html() !== '' && $('#0').html() === $('#1').html() && $('#0').html() === $('#2').html()) {
     winner = true
     winStyling()
     $('#0').css('border-color', '#3DFF4D')
@@ -153,7 +153,7 @@ const onPlayMusic = function play () {
   // audio.play()
   if (audio.paused) {
     audio.play()
-    $('.audio').html('<img src="public/pause.png" alt="play-button"/>')
+    $('.audio').html('<img src="public/pause.png" alt="pause-button"/>')
   } else {
     audio.pause()
     audio.currentTime = 0

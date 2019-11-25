@@ -1,9 +1,9 @@
 'use-strict'
 
-const config = require ('../config.js')
-const store = require ('../store.js')
+const config = require('../config.js')
+const store = require('../store.js')
 
-const createGame = function() {
+const createGame = function () {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/games',
@@ -14,7 +14,7 @@ const createGame = function() {
   })
 }
 
-const updateGame = function(index, value, gameover) {
+const updateGame = function (index, value, gameover) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game.id,
@@ -27,14 +27,14 @@ const updateGame = function(index, value, gameover) {
           'index': index,
           'value': value
         },
-      'over': gameover
+        'over': gameover
       }
     }
   })
 }
 
-const showGames = function() {
-  return $.ajax ({
+const showGames = function () {
+  return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games?over=false',
     headers: {

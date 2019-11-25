@@ -11,10 +11,8 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#create-game').on('click', gameEvents.onCreateGame)
   $('.box').on('click', gameEvents.onUpdateGame)
-  // onCreateGame? onBoxClicked?
   $('#show-games').on('click', gameEvents.onShowGames)
   $('.audio').on('click', gameEvents.onPlayMusic)
-  // $('.audio').toggle(gameEvents.onPlayMusic)
   $('.change-password').hide()
   $('.menu2').hide()
 })
