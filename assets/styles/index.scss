@@ -1,0 +1,228 @@
+@import './variables';
+@import url('https://fonts.googleapis.com/css?family=Monofett&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cute+Font|Dosis&display=swap');
+@import '~bootstrap/scss/bootstrap';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: $primary-contrast-color;
+  border: 3px solid $secondary-accent-color;
+  color: $highlight;
+  font-size: 20px;
+  margin: 5px;
+  padding: 8px;
+
+  &.audio {
+    border-radius: 30%;
+    padding: 5px;
+  }
+}
+
+h1 {
+  color: $primary-box-color;
+  font-family: 'Monofett';
+  font-size: 115px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+h3 {
+  color: #F2F4FF;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+html,
+body {
+  background-color: $primary-background-color;
+  height: 95vh;
+  width: 98vw;
+}
+
+.box {
+  align-items: center;
+  background-color: $highlight;
+  border: 15px double $primary-box-color;
+  border-radius: 10%;
+  display: flex;
+  font-size: 125px;
+  height: 25vh;
+  justify-content: center;
+  width: 25vh;
+}
+
+.change-password {
+  background-color: $primary-box-color;
+  border: 8px solid $highlight;
+  padding: 15px;
+}
+
+.credit {
+  display: inline;
+  margin-left: 10px;
+}
+
+.failure {
+  color: $failure-red;
+  font-style: italic;
+}
+
+.footer {
+  margin-top: -40px;
+  text-align: center;
+}
+
+.left {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.leftside {
+  text-align: center;
+  margin-left: 30px;
+
+  & .change-password {
+    border-radius: 20% 20% 0 0;
+  }
+
+  & .sign-in {
+    background-color: $primary-box-color;
+    border: 8px solid $highlight;
+    border-radius: 0 0 20% 20%;
+    padding: 15px;
+  }
+
+  & .sign-out {
+    background-color: $primary-box-color;
+    border: 8px solid $highlight;
+    border-radius: 0 0 25% 25%;
+    padding: 15px;
+  }
+
+  & .sign-up {
+    background-color: $primary-box-color;
+    border: 8px solid $highlight;
+    border-radius: 20% 20% 0 0;
+    padding: 15px;
+  }
+}
+
+.menu2 {
+  background-color: $primary-contrast-color;
+  border: 3px solid $secondary-accent-color;
+}
+
+.success {
+  background-color: #ffffff;
+  color: $primary-contrast-color;
+  font-style: italic;
+}
+
+#curtain {
+  background-color:$primary-contrast-color;
+  border-radius: 10%;
+  color: #F2F4FF;
+  font-size: 35px;
+  height: 60px;
+  position: absolute;
+  z-index: 100;
+}
+
+#gameboard {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  z-index: 0;
+}
+
+#game-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 35px;
+  background-color: #fffff;
+  width: 500px;
+}
+
+#game-stats {
+  background-color: $highlight;
+  margin: 0 auto;
+  width: 175px;
+}
+
+#message {
+  margin: 5px auto;
+  width: 350px;
+}
+
+#tile-taken {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -30px;
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 1169px) {
+  h1 {
+    font-size: 90px;
+  }
+  html {
+    margin: 0 auto;
+  }
+  #curtain {
+    font-size: 30px;
+    height: 50px;
+  }
+  #game-message {
+    width: 100%;
+  }
+  #message {
+    margin: 5px auto;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+  html {
+    margin: 0 auto;
+  }
+  #curtain {
+    font-size: 25px;
+    height: 40px;
+  }
+  #message {
+    margin: 5px auto;
+    width: 100%;
+  }
+  #game-message {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 472px) {
+  html {
+    margin: 0 auto;
+  }
+  #curtain {
+    font-size: 20px;
+    height: 40px;
+  }
+  #game-message {
+    width: 100%;
+  }
+  #message {
+    margin: 5px auto;
+    width: 100%;
+  }
+}
