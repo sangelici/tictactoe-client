@@ -4,6 +4,10 @@ This is a single page application for the well loved classic game: Tic-Tac-Toe. 
 
 A good majority of people know the game of Tic-Tac-Toe, it's a well loved classic! I have built an application which allows the user to play as many games as they like! This is my first project within the General Assembly Software Engineering Immersive course.
 
+*** When demoing the application, please do not use a real email or password when registering ***
+
+ex: email: x@o, password: xo
+
 # Link to live game!
 
 [Tic-Tac-Toe](https://sangelici.github.io/tictactoe-client/)
